@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-const API_KEY = '5c5e0fb3bd93237658e0e48819bd474e';
+import { searchMovies } from '../../services/api';
+import './Movies.css';
 
 const Movies = () => {
   const [query, setQuery] = useState('');
@@ -10,15 +9,12 @@ const Movies = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`
-    );
-    const data = await response.json();
-    setMovies(data.results);
+    const results = await searchMovies(query);
+    setMovies(results);
   };
 
   return (
-    <div>
+    <div className="movies-container">
       <h1>Search Movies</h1>
       <form onSubmit={handleSearch}>
         <input

@@ -1,0 +1,29 @@
+.reviews-container {
+  padding: 20px;
+}
+
+.reviews-container h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.reviews-container ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.reviews-container li {
+  margin: 10px 0;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.reviews-container h3 {
+  margin-top: 0;
+}
+
+.reviews-container p {
+  margin: 10px 0;
+  line-height: 1.4;
+}

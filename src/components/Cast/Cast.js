@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-const API_KEY = '5c5e0fb3bd93237658e0e48819bd474e';
+import { fetchMovieCredits } from '../../services/api';
+import './Cast.css';
 
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
-    const fetchMovieCast = async () => {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`
-      );
-      const data = await response.json();
-      setCast(data.cast);
+    const fetchData = async () => {
+      const movieCredits = await fetchMovieCredits(movieId);
+      setCast(movieCredits);
     };
 
-    fetchMovieCast();
+    fetchData();
   }, [movieId]);
 
   return (
-    <div>
+    <div className="cast-container">
       <h2>Cast</h2>
       <ul>
         {cast.map((actor) => (

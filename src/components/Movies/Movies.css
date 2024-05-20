@@ -1,0 +1,43 @@
+.movies-container {
+  padding: 20px;
+}
+
+.movies-container h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.movies-container form {
+  margin-bottom: 20px;
+}
+
+.movies-container input {
+  padding: 10px;
+  font-size: 1em;
+}
+
+.movies-container button {
+  padding: 10px;
+  font-size: 1em;
+}
+
+.movies-container ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.movies-container li {
+  margin: 10px 0;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.movies-container li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.movies-container li a:hover {
+  text-decoration: underline;
+}

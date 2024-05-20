@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-const API_KEY = '5c5e0fb3bd93237658e0e48819bd474e';
+import { fetchMovieReviews } from '../../services/api';
+import './Reviews.css';
 
 const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const fetchMovieReviews = async () => {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`
-      );
-      const data = await response.json();
-      setReviews(data.results);
+    const fetchData = async () => {
+      const movieReviews = await fetchMovieReviews(movieId);
+      setReviews(movieReviews);
     };
 
-    fetchMovieReviews();
+    fetchData();
   }, [movieId]);
 
   return (
-    <div>
+    <div className="reviews-container">
       <h2>Reviews</h2>
       <ul>
         {reviews.map((review) => (

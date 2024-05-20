@@ -1,0 +1,36 @@
+.details-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.details-container h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.details-container p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  color: #555;
+}
+
+.details-container ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.details-container li {
+  margin: 10px 0;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.details-container li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.details-container li a:hover {
+  text-decoration: underline;
+}
