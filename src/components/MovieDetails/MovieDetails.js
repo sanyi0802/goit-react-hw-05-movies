@@ -38,8 +38,28 @@ const MovieDetails = () => {
           <Outlet />
         </>
       )}
+      {credits.length > 0 && (
+        <div>
+          <h2>Cast</h2>
+          <ul>
+            {credits.map((credit) => (
+              <li key={credit.id}>{credit.name}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {reviews.length > 0 && (
+        <div>
+          <h2>Reviews</h2>
+          <ul>
+            {reviews.map((review) => (
+              <li key={review.id}>{review.content}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
-  );
+  );  
 };
 
 export default MovieDetails;
