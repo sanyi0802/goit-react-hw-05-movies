@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 
-const Home = lazy(() => import('./components/Home/Home'));
+//const Home = lazy(() => import('./components/Home/Home'));
 const Movies = lazy(() => import('./components/Movies/Movies'));
 const MovieDetails = lazy(() => import('./components/MovieDetails/MovieDetails'));
 const Cast = lazy(() => import('./components/Cast/Cast'));
