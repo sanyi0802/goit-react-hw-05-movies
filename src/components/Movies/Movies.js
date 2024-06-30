@@ -1,22 +1,37 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { searchMovies } from '../../services/api';
 import './Movies.css';
 
 const Movies = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    const results = await searchMovies(query);
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const searchQuery = params.get('query');
+    if (searchQuery) {
+      setQuery(searchQuery);
+      handleSearch(searchQuery);
+    }
+  }, [location.search]);
+
+  const handleSearch = async (searchQuery) => {
+    const results = await searchMovies(searchQuery);
     setMovies(results);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/movies?query=${query}`);
   };
 
   return (
     <div className="movies-container">
       <h1>Search Movies</h1>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={query}

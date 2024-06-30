@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1>Trending Movies</h1>
+      <h1>Trending Today</h1>
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
